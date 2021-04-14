@@ -1,5 +1,4 @@
 import pkg from './package.json'
-import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 export default [
@@ -11,7 +10,6 @@ export default [
       format: 'umd'
     },
     plugins: [
-      commonjs(),
       babel({
         runtimeHelpers: true
       }),
@@ -25,7 +23,6 @@ export default [
       { file: pkg.module, format: 'es' }
     ],
     plugins: [
-      commonjs(),
       babel({
         runtimeHelpers: true
       }),

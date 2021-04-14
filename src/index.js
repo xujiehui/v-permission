@@ -64,11 +64,3 @@ const install = (
 export default {
   install
 }
-
-let p = new Promise(resolve => {
-  setTimeout(() => {
-    console.log(123)
-  }, 2000)
-}).then(v => {
-  console.log(v)
-})
