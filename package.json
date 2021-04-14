@@ -1,0 +1,30 @@
+{
+  "name": "v-permission",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/v-permission.cjs.js",
+  "module": "dist/v-permission.esm.js",
+  "browser": "dist/v-permission.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xujiehui/v-permission.git"
+  },
+  "keywords": [
+    "vue",
+    "directive",
+    "permission"
+  ],
+  "author": "Endless",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xujiehui/v-permission/issues"
+  },
+  "homepage": "https://github.com/xujiehui/v-permission#readme",
+  "devDependencies": {
+    "rollup": "^2.45.2"
+  }
+}
