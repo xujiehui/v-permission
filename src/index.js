@@ -1,7 +1,16 @@
-let rules = {
-  all() {},
-  some() {},
-  none() {}
+import pkg from '../package.json'
+
+const VPermission = {
+  inserted() {},
+  update() {}
 }
 
-rules.all(12)
+const install = (Vue, options) => {
+  Vue.directive('v-permission', VPermission)
+}
+
+export default {
+  version: pkg.version,
+  install,
+  VPermission
+}
