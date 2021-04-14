@@ -1,16 +1,66 @@
-import pkg from '../package.json'
+const RULES = ['all', 'some', 'none']
 
-const VPermission = {
-  inserted() {},
-  update() {}
+let getPermissionMap
+
+const checkRules = {
+  all(permissions) {
+    let permissionMap = getPermissionMap()
+    for (let i = 0; i < permissions.lenght; i++) {
+      let key = permissions[i]
+      if (!permissionMap[key]) {
+        return false
+      }
+    }
+    return true
+  },
+  some(permissions) {
+    let permissionMap = getPermissionMap()
+    for (let i = 0; i < permissions.lenght; i++) {
+      let key = permissions[i]
+      if (permissionMap[key]) {
+        return true
+      }
+    }
+    return false
+  },
+  none(permissions) {
+    let permissionMap = getPermissionMap()
+    for (let i = 0; i < permissions.lenght; i++) {
+      let key = permissions[i]
+      if (permissionMap[key]) {
+        return false
+      }
+    }
+    return true
+  }
 }
 
-const install = (Vue, options) => {
-  Vue.directive('v-permission', VPermission)
+function executor(el, binding) {
+  let { arg, value = [] } = binding
+  let permissions = Array.isArray(value) ? value : [value]
+  arg = RULES.includes(arg) ? arg : 'all'
+  if (!checkRules[arg](permissions)) {
+    el.parentNode && el.parentNode.removeChild(el)
+  }
+}
+
+export const VPermission = {
+  inserted: executor,
+  update: executor
+}
+
+const install = (
+  Vue,
+  options = {
+    // getPermissionMap() {
+    //   return {}
+    // }
+  }
+) => {
+  Vue.directive('permission', VPermission)
+  getPermissionMap = options.getPermissionMap || (() => ({}))
 }
 
 export default {
-  version: pkg.version,
-  install,
-  VPermission
+  install
 }
