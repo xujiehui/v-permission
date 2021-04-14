@@ -30,5 +30,13 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: npm i
-      - run: npm run build
+      - name: Install and Build
+        run: |
+          npm i
+          npm run build
+
+      - name: Update dist folder to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo $GITHUB_TOKEN
