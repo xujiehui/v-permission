@@ -7,7 +7,8 @@ export default [
     output: {
       name: 'VPermission',
       file: pkg.browser,
-      format: 'umd'
+      format: 'umd',
+      exports: 'auto'
     },
     plugins: [
       babel({
@@ -19,8 +20,16 @@ export default [
   {
     input: 'src/index.js',
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      {
+        file: pkg.main,
+        format: 'cjs',
+        exports: 'auto'
+      },
+      {
+        file: pkg.module,
+        format: 'es',
+        exports: 'auto'
+      }
     ],
     plugins: [
       babel({
