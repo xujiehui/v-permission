@@ -44,7 +44,7 @@ function executor(el, binding) {
   }
 }
 
-export const VPermission = {
+const VPermission = {
   inserted: executor,
   update: executor
 }
@@ -64,3 +64,11 @@ const install = (
 export default {
   install
 }
+
+let p = new Promise(resolve => {
+  setTimeout(() => {
+    console.log(123)
+  }, 2000)
+}).then(v => {
+  console.log(v)
+})
