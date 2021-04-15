@@ -35,19 +35,9 @@ jobs:
           npm i
           npm run build
 
-      # - name: Update dist folder to repository
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "github-actions[bot]"
-      #     git add dist
-      #     git commit -m "[$GITHUB_WORKFLOW]Auto commit from Github Action"
-      #     git remote set-url --push origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
-      #     git push
-
-      - name : Upload dist
-      uses: actions/upload-artifact@master
-      with:
-        name: dist
-        path: dist
+      - uses: actions/upload-artifact@master
+      - name: Upload dist
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
