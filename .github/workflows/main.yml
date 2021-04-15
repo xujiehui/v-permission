@@ -39,5 +39,5 @@ jobs:
       - name: Upload dist
         uses: actions/upload-artifact@master
         with:
-          name: v-permission.cjs.js
-          path: dist
+          name: dist
+          path: dist/*.js
