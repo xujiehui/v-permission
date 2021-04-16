@@ -1,11 +1,14 @@
 const RULES = ['all', 'some', 'none']
-
 let getPermissionMap
+
+function setGetPermissionMapFn(fn) {
+  getPermissionMap = fn || (() => ({}))
+}
 
 const checkRules = {
   all(permissions) {
     let permissionMap = getPermissionMap()
-    for (let i = 0; i < permissions.lenght; i++) {
+    for (let i = 0; i < permissions.length; i++) {
       let key = permissions[i]
       if (!permissionMap[key]) {
         return false
@@ -15,7 +18,7 @@ const checkRules = {
   },
   some(permissions) {
     let permissionMap = getPermissionMap()
-    for (let i = 0; i < permissions.lenght; i++) {
+    for (let i = 0; i < permissions.length; i++) {
       let key = permissions[i]
       if (permissionMap[key]) {
         return true
@@ -25,7 +28,7 @@ const checkRules = {
   },
   none(permissions) {
     let permissionMap = getPermissionMap()
-    for (let i = 0; i < permissions.lenght; i++) {
+    for (let i = 0; i < permissions.length; i++) {
       let key = permissions[i]
       if (permissionMap[key]) {
         return false
@@ -58,7 +61,7 @@ const install = (
   }
 ) => {
   Vue.directive('permission', VPermission)
-  getPermissionMap = options.getPermissionMap || (() => ({}))
+  setGetPermissionMapFn(options.getPermissionMap)
 }
 
 export default {

@@ -2,40 +2,50 @@
   "name": "v-permission",
   "version": "1.0.0",
   "description": "",
+  "author": "Endless",
+  "scripts": {
+    "build": "rollup -c",
+    "test:unit": "vue-cli-service test:unit",
+    "dev": "rollup -c -w",
+    "test": "jest"
+  },
   "main": "dist/v-permission.cjs.js",
   "module": "dist/v-permission.esm.js",
   "browser": "dist/v-permission.umd.js",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xujiehui/v-permission.git"
-  },
-  "keywords": [
-    "vue",
-    "directive",
-    "permission"
-  ],
-  "author": "Endless",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/xujiehui/v-permission/issues"
-  },
-  "homepage": "https://github.com/xujiehui/v-permission#readme",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.13.15",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.13.15",
+    "@vue/cli-plugin-unit-jest": "^4.5.12",
+    "@vue/test-utils": "^1.1.4",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
     "rollup": "^2.45.2",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "sinon": "^10.0.0",
+    "vue": "^2.6.12",
+    "vue-jest": "^3.0.7",
+    "vue-template-compiler": "^2.6.12"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/xujiehui/v-permission/issues"
+  },
+  "homepage": "https://github.com/xujiehui/v-permission#readme",
+  "keywords": [
+    "vue",
+    "directive",
+    "permission"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xujiehui/v-permission.git"
+  }
 }

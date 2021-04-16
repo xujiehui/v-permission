@@ -1,5 +1,3 @@
 {
-  "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-syntax-dynamic-import"],
-  "ignore": ["dist/*.js"]
+  "presets": [["@babel/preset-env"]]
 }
